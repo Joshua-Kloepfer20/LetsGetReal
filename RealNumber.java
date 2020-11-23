@@ -11,20 +11,20 @@ public class RealNumber {
     return "" + getValue();
   }
   public boolean equals(RealNumber other) {
-    x = Math.abs(this.getValue() - other.getValue();)
-    y = (this.getValue() + other.getValue())/ 2;
+    double x = Math.abs(this.getValue() - other.getValue());
+    double y = (this.getValue() + other.getValue())/ 2;
     return (x / y) * 100 <= .001;
   }
   public RealNumber add (RealNumber other) {
-    return this.getValue() + other.getValue();
+    return new RealNumber(this.getValue() + other.getValue());
   }
   public RealNumber multiply(RealNumber other) {
-    return this.getValue() * other.getValue();
+    return new RealNumber(this.getValue() * other.getValue());
   }
   public RealNumber divide(RealNumber other) {
-    return this.getValue() / other.getValue();
+    return new RealNumber(this.getValue() / other.getValue());
   }
   public RealNumber subtract(RealNumber other) {
-    return this.getValue() - other.getValue();
+    return new RealNumber(this.getValue() - other.getValue());
   }
 }
