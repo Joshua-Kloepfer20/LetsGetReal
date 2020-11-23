@@ -6,13 +6,18 @@ public class RationalNumber extends RealNumber {
       numerator = 0;
       denominator = 1;
     }
-    else{
+    else if (deno < 0){
+      denominator = -1 * deno;
+      numerator = -1 * nume;
+    }
+    else {
       denominator = deno;
       numerator = nume;
     }
+    reduce();
   }
   public double getValue() {
-    return 0.0;
+    return numerator / (double)denominator;
   }
   public int getNumerator() {
     return numerator;
@@ -30,10 +35,13 @@ public class RationalNumber extends RealNumber {
     return "" + numerator + "/" + denominator;
   }
   private static int gcd(int a, int b) {
-    if (a < b) {
-      int x = b;
-      b = a;
+    if (Math.abs(a) < Math.abs(b)) {
+      int x = Math.abs(b);
+      b = Math.abs(a);
       a = x;
+    }
+    if (b == 0) {
+      return a;
     }
     while (a % b != 0) {
       int x = a % b;
